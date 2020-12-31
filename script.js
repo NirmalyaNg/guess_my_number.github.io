@@ -84,12 +84,23 @@ const checkWriteGuess = (val) => {
     //If guessed number is less then display message and decrement score by 1
     messageEl.textContent = 'Too Low !!!';
     score--;
+    checkOneScore();
     scoreLabel.textContent = score;
   }else{
 
     //If guessed number is more then display message and decrement score by 1
     messageEl.textContent = 'Too High !!!';
     score--;
+    checkOneScore();
     scoreLabel.textContent = score;
+  }
+}
+
+//When the user's score reaches 1
+const checkOneScore = () => {
+  if(score == 1){
+    document.body.style.backgroundColor = 'tomato';
+    playing = 0;
+    messageEl.textContent = 'Sorry no more guesses !!!';
   }
 }
